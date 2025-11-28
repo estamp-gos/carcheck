@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://carcheck.store/</loc>
+    <lastmod>2025-07-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://carcheck.store/card.png</image:loc>
+      <image:caption>Car Check Store - Vehicle History Reports</image:caption>
+      <image:title>Car Check Store Homepage</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://carcheck.store/11235813.html</loc>
+    <lastmod>2025-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+</urlset>
