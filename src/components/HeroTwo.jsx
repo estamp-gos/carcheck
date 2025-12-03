@@ -32,6 +32,16 @@ const HeroTwo = () => {
                 free VIN check can flag those issues before your money leaves your pocket.
               </p>
               
+              <div className="worldwide-availability-badge">
+                <div className="availability-icon">
+                  <i className="fas fa-globe"></i>
+                </div>
+                <div className="availability-text">
+                  <strong>Available Worldwide</strong>
+                  <span>Our service is accessible in every country around the globe</span>
+                </div>
+              </div>
+              
               <div className="vin-checker-box">
                 <div className="tab-selector">
                   <button 
@@ -150,6 +160,59 @@ const HeroTwo = () => {
           color: #64748b;
           line-height: 1.7;
           margin-bottom: 40px;
+        }
+
+        .worldwide-availability-badge {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+          border: 2px solid #10b981;
+          border-radius: 12px;
+          padding: 15px 20px;
+          margin-bottom: 30px;
+          animation: pulse-border 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-border {
+          0%, 100% {
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+          }
+        }
+
+        .availability-icon {
+          width: 45px;
+          height: 45px;
+          background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          font-size: 22px;
+          flex-shrink: 0;
+        }
+
+        .availability-text {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+
+        .availability-text strong {
+          font-size: 16px;
+          font-weight: 700;
+          color: #065f46;
+          display: block;
+        }
+
+        .availability-text span {
+          font-size: 13px;
+          color: #047857;
+          line-height: 1.4;
         }
 
         .vin-checker-box {
@@ -375,6 +438,24 @@ const HeroTwo = () => {
 
           .hero-title-modern {
             font-size: 28px;
+          }
+
+          .worldwide-availability-badge {
+            padding: 12px 15px;
+          }
+
+          .availability-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 18px;
+          }
+
+          .availability-text strong {
+            font-size: 14px;
+          }
+
+          .availability-text span {
+            font-size: 12px;
           }
 
           .stat-item {
