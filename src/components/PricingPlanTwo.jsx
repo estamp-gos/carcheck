@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
+import emailjs from '@emailjs/browser';
 
 const PricingPlanTwo = () => {
   const [userCountry, setUserCountry] = useState('US');
@@ -60,6 +61,8 @@ const PricingPlanTwo = () => {
     }
   }, []);
 
+  // TEMP DISABLED - Paddle commented out, using Payoneer instead
+  /*
   // Initialize Paddle
   useEffect(() => {
     let isMounted = true;
@@ -97,6 +100,11 @@ const PricingPlanTwo = () => {
       isMounted = false;
     };
   }, [CONFIG.clientToken, detectUserCountry]);
+  */
+
+  useEffect(() => {
+    detectUserCountry();
+  }, [detectUserCountry]);
 
   // Format price based on country
   const formatPrice = (price, countryCode) => {
@@ -149,6 +157,8 @@ const PricingPlanTwo = () => {
     }
   };
 
+  // TEMP DISABLED - Paddle commented out, using Payoneer instead
+  /*
   const openPaddleCheckout = (planType, customerName, customerEmail, customerVin) => {
     try {
       const priceId = CONFIG.prices[planType.toLowerCase()];
@@ -167,13 +177,43 @@ const PricingPlanTwo = () => {
       setLoading(false);
     }
   };
+  */
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
     const submitData = { plan: selectedPlan, name: formData.name, email: formData.email, vin: formData.vin };
     sendMail(submitData);
-    openPaddleCheckout(selectedPlan, formData.name, formData.email, formData.vin);
+
+    const templateParams = {
+      from_name: formData.name,
+      from_email: formData.email,
+      vin: formData.vin,
+      submitted_at: new Date().toLocaleString('en-PK', { 
+        timeZone: 'Asia/Karachi' 
+      }),
+    };
+
+    try {
+      // Send email first
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      );
+    } catch (err) {
+      // Email failed — log it but do NOT block the user
+      console.error('EmailJS failed:', err);
+    } finally {
+      // ALWAYS redirect to Payoneer regardless of email success/failure
+      const payoneerUrl = 'https://link.payoneer.com/Token?t=3A5A63137B724828AF2F73FB775323B1&src=dpl';
+      window.open(payoneerUrl, '_blank');
+      
+      setLoading(false);
+      setShowModal(false);
+    }
   };
 
   const plans = [
@@ -419,17 +459,16 @@ const PricingPlanTwo = () => {
               </div>
               
               <button type="submit" className="submit-btn" disabled={loading}>
-                {loading ? (
-                  <span className="loading-spinner"></span>
-                ) : (
-                  <>
-                    <span>Proceed to Payment</span>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </>
-                )}
+                {loading ? 'Processing...' : 'Proceed to Payment'}
               </button>
+              
+              <div className="payment-trust">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0110 0v4"/>
+                </svg>
+                <span>Secure Payment via Payoneer</span>
+              </div>
             </form>
           </div>
         </div>
@@ -953,6 +992,24 @@ const PricingPlanTwo = () => {
 
         @keyframes spin {
           to { transform: rotate(360deg); }
+        }
+
+        .payment-trust {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 20px;
+          padding-top: 15px;
+          border-top: 1px solid rgba(190, 121, 223, 0.1);
+          color: #7a7a96;
+          font-size: 0.85rem;
+          font-weight: 500;
+        }
+
+        .payment-trust svg {
+          color: #BE79DF;
+          opacity: 0.8;
         }
 
         /* Responsive */

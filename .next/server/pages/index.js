@@ -109,6 +109,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 
 /***/ }),
 
+/***/ "@emailjs/browser":
+/*!***********************************!*\
+  !*** external "@emailjs/browser" ***!
+  \***********************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("@emailjs/browser");
+
+/***/ }),
+
 /***/ "bootstrap/dist/js/bootstrap.bundle.min":
 /*!*********************************************************!*\
   !*** external "bootstrap/dist/js/bootstrap.bundle.min" ***!
