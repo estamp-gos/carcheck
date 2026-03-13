@@ -98,11 +98,11 @@ const FooterAreaTwo = () => {
                 <div className="footer-widget-glass">
                   <h4 className="footer-widget-title">Company</h4>
                   <ul className="footer-links-glass">
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#affiliate">Affiliate Program</a></li>
+                    <li><Link href="/about">About Us</Link></li>
+                    <li><Link href="/contact">Contact Us</Link></li>
+                    <li><Link href="/reviews">Reviews</Link></li>
+                    <li><Link href="/blog">Blog</Link></li>
+                    <li><Link href="/affiliate">Affiliate Program</Link></li>
                   </ul>
                 </div>
               </div>
@@ -111,11 +111,11 @@ const FooterAreaTwo = () => {
                 <div className="footer-widget-glass">
                   <h4 className="footer-widget-title">Legal</h4>
                   <ul className="footer-links-glass">
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#refund">Refund Policy</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#terms">Terms & Conditions</a></li>
-                    <li><a href="#sitemap">Sitemap</a></li>
+                    <li><Link href="/faq">FAQ</Link></li>
+                    <li><Link href="/refund-policy">Refund Policy</Link></li>
+                    <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+                    <li><Link href="/terms-and-conditions">Terms & Conditions</Link></li>
+                    <li><Link href="/sitemap">Sitemap</Link></li>
                   </ul>
                 </div>
               </div>
@@ -169,9 +169,10 @@ const FooterAreaTwo = () => {
                 <p className="copyright-text-glass">
                   © 2012 - 2025 Car Check Store Vehicle History Reports. All Rights Reserved. 
                   Use of this Website constitutes acceptance of our{' '}
-                  <a href="#terms">Terms & Conditions</a>,{' '}
-                  <a href="#privacy">Privacy Policy</a>,{' '}
-                  <a href="#refund">Refund Policy</a>.{' '}
+                  Use of this Website constitutes acceptance of our{' '}
+                  <Link href="/terms-and-conditions">Terms & Conditions</Link>,{' '}
+                  <Link href="/privacy-policy">Privacy Policy</Link>,{' '}
+                  <Link href="/refund-policy">Refund Policy</Link>.{' '}
                   This site is owned and operated by Car Check Store - an approved NMVTIS data provider.
                 </p>
               </div>
