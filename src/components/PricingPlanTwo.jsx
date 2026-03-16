@@ -10,7 +10,6 @@ const PricingPlanTwo = () => {
     email: '',
     vin: ''
   });
-  const [loading, setLoading] = useState(false);
 
   // Paddle Configuration
   const CONFIG = {
@@ -61,8 +60,6 @@ const PricingPlanTwo = () => {
     }
   }, []);
 
-  // TEMP DISABLED - Paddle commented out, using Payoneer instead
-  /*
   // Initialize Paddle
   useEffect(() => {
     let isMounted = true;
@@ -100,7 +97,6 @@ const PricingPlanTwo = () => {
       isMounted = false;
     };
   }, [CONFIG.clientToken, detectUserCountry]);
-  */
 
   useEffect(() => {
     detectUserCountry();
@@ -135,7 +131,6 @@ const PricingPlanTwo = () => {
     setShowModal(false);
     setSelectedPlan(null);
     setFormData({ name: '', email: '', vin: '' });
-    setLoading(false);
   };
 
   const handleInputChange = (e) => {
@@ -157,13 +152,10 @@ const PricingPlanTwo = () => {
     }
   };
 
-  // TEMP DISABLED - Paddle commented out, using Payoneer instead
-  /*
   const openPaddleCheckout = (planType, customerName, customerEmail, customerVin) => {
     try {
       const priceId = CONFIG.prices[planType.toLowerCase()];
       if (!priceId) {
-        setLoading(false);
         return;
       }
 
@@ -172,16 +164,13 @@ const PricingPlanTwo = () => {
         settings: { displayMode: "overlay", theme: "light", locale: "en" },
         customData: { plan: planType, name: customerName, email: customerEmail, vin: customerVin }
       });
-      setLoading(false);
     } catch (error) {
-      setLoading(false);
+      console.error("Paddle checkout error:", error);
     }
   };
-  */
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     
     const submitData = { plan: selectedPlan, name: formData.name, email: formData.email, vin: formData.vin };
     sendMail(submitData);
@@ -196,24 +185,19 @@ const PricingPlanTwo = () => {
     };
 
     try {
-      // Send email first
-      await emailjs.send(
+      // Send email asynchronously so it does not block the checkout popup
+      emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
-      );
+      ).catch(err => console.error('EmailJS failed:', err));
     } catch (err) {
-      // Email failed — log it but do NOT block the user
-      console.error('EmailJS failed:', err);
-    } finally {
-      // ALWAYS redirect to Payoneer regardless of email success/failure
-      const payoneerUrl = 'https://link.payoneer.com/Token?t=3A5A63137B724828AF2F73FB775323B1&src=dpl';
-      window.open(payoneerUrl, '_blank');
-      
-      setLoading(false);
-      setShowModal(false);
+      console.error('Error starting EmailJS:', err);
     }
+
+    // Immediately open Paddle Checkout
+    openPaddleCheckout(selectedPlan, formData.name, formData.email, formData.vin);
   };
 
   const plans = [
@@ -458,8 +442,8 @@ const PricingPlanTwo = () => {
                 />
               </div>
               
-              <button type="submit" className="submit-btn" disabled={loading}>
-                {loading ? 'Processing...' : 'Proceed to Payment'}
+              <button type="submit" className="submit-btn">
+                Proceed to Payment
               </button>
               
               <div className="payment-trust">
@@ -467,7 +451,7 @@ const PricingPlanTwo = () => {
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                   <path d="M7 11V7a5 5 0 0110 0v4"/>
                 </svg>
-                <span>Secure Payment via Payoneer</span>
+                <span>Secure Payment</span>
               </div>
             </form>
           </div>
