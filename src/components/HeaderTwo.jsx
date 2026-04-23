@@ -44,14 +44,14 @@ const HeaderTwo = () => {
               <nav className="desktop-nav">
                 <ul className="nav-list">
                   <li>
-                    <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')} className="nav-link-glass">
+                    <Link href="/" className="nav-link-glass">
                       Home
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#about" onClick={(e) => scrollToSection(e, '#about')} className="nav-link-glass">
+                    <Link href="/about" className="nav-link-glass">
                       About
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="#services" onClick={(e) => scrollToSection(e, '#services')} className="nav-link-glass">
@@ -113,16 +113,16 @@ const HeaderTwo = () => {
             <nav className="mobile-nav-glass">
               <ul>
                 <li>
-                  <a href="#hero" onClick={(e) => scrollToSection(e, '#hero')}>
+                  <Link href="/">
                     <i className="fas fa-home"></i>
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#about" onClick={(e) => scrollToSection(e, '#about')}>
+                  <Link href="/about">
                     <i className="fas fa-info-circle"></i>
                     About
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="#services" onClick={(e) => scrollToSection(e, '#services')}>

@@ -73,8 +73,8 @@ const FooterAreaTwo = () => {
                     </p>
                     <p className="contact-address">
                       <i className="fas fa-map-marker-alt"></i>
-                      2980 NE 207th St, Suite 300-189<br />
-                      Aventura, FL 33180 USA
+                      Sameer Anwer Khan<br />
+                      Shadman Town Sector 14-b maria luxury apartment block 2 flat number AA403
                     </p>
                   </div>
                   <div className="footer-social-links">
@@ -167,14 +167,16 @@ const FooterAreaTwo = () => {
             <div className="row align-items-center">
               <div className="col-md-12 text-center">
                 <p className="copyright-text-glass">
-                  © 2012 - 2025 Car Check Store Vehicle History Reports. All Rights Reserved. 
-                  Use of this Website constitutes acceptance of our{' '}
+                  © 2012 - 2026 Car Check Store Vehicle History Reports. All Rights Reserved. 
                   Use of this Website constitutes acceptance of our{' '}
                   <Link href="/terms-and-conditions">Terms & Conditions</Link>,{' '}
                   <Link href="/privacy-policy">Privacy Policy</Link>,{' '}
                   <Link href="/refund-policy">Refund Policy</Link>.{' '}
                   This site is owned and operated by Car Check Store - an approved NMVTIS data provider.
                 </p>
+                <div className="ownership-line" style={{ marginTop: '10px', opacity: 0.7, fontSize: '12px' }}>
+                  © 2026 Car Check | Owned and Operated by Sameer Anwer Khan.
+                </div>
               </div>
             </div>
           </div>

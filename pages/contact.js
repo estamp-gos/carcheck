@@ -78,7 +78,7 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h5 style={{ marginBottom: '5px', fontWeight: '600' }}>Our Location</h5>
-                                        <p style={{ margin: 0, color: '#666' }}>2980 NE 207th St, Suite 300-189<br />Aventura, FL 33180 USA</p>
+                                        <p style={{ margin: 0, color: '#666' }}>Sameer Anwer Khan<br />Shadman Town Sector 14-b maria luxury apartment block 2 flat number AA403</p>
                                     </div>
                                 </div>
 
