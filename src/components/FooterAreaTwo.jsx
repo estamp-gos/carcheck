@@ -64,17 +64,17 @@ const FooterAreaTwo = () => {
                 <div className="footer-widget-glass">
                   <h4 className="footer-widget-title">
                     <i className="fas fa-headset"></i>
-                    Customer Service
+                    Contact Details
                   </h4>
                   <div className="footer-contact-info">
-                    <p className="contact-time">
-                      <i className="fas fa-clock"></i>
-                      7 am - 6 pm EST Monday - Friday
-                    </p>
+                    
                     <p className="contact-address">
-                      <i className="fas fa-map-marker-alt"></i>
+                      
                       Sameer Anwer Khan<br />
-                      Shadman Town Sector 14-b maria luxury apartment block 2 flat number AA403
+                      +92 (319) 784-7380<br />
+                      info@carcheck.store<br />
+                      itssameer2468@gmail.com<br />
+                      Shadman Town Sector 14-B Maria Luxury Apartment Block 2 Flat Number AA 403, Karachi, Pakistan
                     </p>
                   </div>
                   <div className="footer-social-links">
