@@ -98,7 +98,7 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h5 style={{ marginBottom: '5px', fontWeight: '600' }}>Phone</h5>
-                                        <p style={{ margin: 0, color: '#666' }}>7 am - 6 pm EST<br />+92 (319) 784-7380
+                                        <p style={{ margin: 0, color: '#666' }}>+92 (319) 784-7380
 </p>
                                     </div>
                                 </div>
