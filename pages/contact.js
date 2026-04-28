@@ -57,8 +57,8 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h5 style={{ marginBottom: '5px', fontWeight: '600' }}>Email Us</h5>
-                                        <p style={{ margin: 0, color: '#666' }}>info@historivin.store</p>
-                                        <p style={{ margin: 0, color: '#666' }}>car.check.store@gmail.com</p>
+                                        <p style={{ margin: 0, color: '#666' }}>info@carcheck.store</p>
+                                        <p style={{ margin: 0, color: '#666' }}>itssameer2468@gmail.com</p>
                                     </div>
                                 </div>
 
@@ -78,7 +78,7 @@ const ContactPage = () => {
                                     </div>
                                     <div>
                                         <h5 style={{ marginBottom: '5px', fontWeight: '600' }}>Our Location</h5>
-                                        <p style={{ margin: 0, color: '#666' }}>Sameer Anwer Khan<br />Shadman Town Sector 14-b maria luxury apartment block 2 flat number AA403</p>
+                                        <p style={{ margin: 0, color: '#666' }}>Shadman Town Sector 14-B Maria Luxury Apartment Block 2 Flat Number AA 403, Karachi, Pakistan</p>
                                     </div>
                                 </div>
 
@@ -94,11 +94,12 @@ const ContactPage = () => {
                                         color: 'white',
                                         flexShrink: 0
                                     }}>
-                                        <i className="fas fa-clock"></i>
+                                        <i className="fas fa-phone"></i>
                                     </div>
                                     <div>
-                                        <h5 style={{ marginBottom: '5px', fontWeight: '600' }}>Office Hours</h5>
-                                        <p style={{ margin: 0, color: '#666' }}>7 am - 6 pm EST<br />Monday - Friday</p>
+                                        <h5 style={{ marginBottom: '5px', fontWeight: '600' }}>Phone</h5>
+                                        <p style={{ margin: 0, color: '#666' }}>7 am - 6 pm EST<br />+92 (319) 784-7380
+</p>
                                     </div>
                                 </div>
                             </div>
